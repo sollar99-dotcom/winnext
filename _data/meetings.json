@@ -1,0 +1,19 @@
+{
+  "year": 2026,
+  "theme": "Courage to Move",
+  "cafe": "https://cafe.naver.com/winnextwin/",
+  "meetings": [
+    {"date": "2026-01-24", "type": "네트워킹", "title": "킥오프 · 2026 운영계획과 밍글링", "who": "", "place": "광화문 MS 13층", "cafe": [358, 359]},
+    {"date": "2026-02-21", "type": "인사이트", "title": "응원하는 마음", "who": "서은아 작가", "place": "패스트파이브 신논현1호점", "cafe": [367]},
+    {"date": "2026-03-21", "type": "인사이트", "title": "리더를 위한 AI 리터러시", "who": "강양석 작가", "place": "KB라이프타워 지하 2층", "cafe": [371]},
+    {"date": "2026-04-18", "type": "네트워킹", "title": "대한민국 임시정부기념관 & 안산자락길", "who": "", "place": "야외", "cafe": [374]},
+    {"date": "2026-05-16", "type": "W-TED", "title": "W-TED · 5인 5색의 서사", "who": "회원 5명 발표", "place": "", "cafe": [375]},
+    {"date": "2026-06-20", "type": "인사이트", "title": "차와 인문학", "who": "이유진 대표", "place": "", "cafe": [378]},
+    {"date": "2026-07-25", "type": "멘토링", "title": "WIN × WINNEXT 멘토링 데이", "who": "WIN 멘토 7명", "place": "IGM 세계경영연구소", "cafe": [380]},
+    {"date": "2026-08-22", "type": "인사이트", "title": "클리어 리더십", "who": "이영숙 대표", "place": "광화문 MS 13층", "cafe": [383]},
+    {"date": "2026-09-19", "type": "인사이트", "title": "AI와 함께 일하는 법", "who": "이림 대표", "place": "광화문 MS 13층", "cafe": [384]},
+    {"date": "2026-10-17", "type": "W-TED", "title": "하반기 W-TED", "who": "회원 3명 발표", "place": "광화문 MS 13층", "cafe": [385]},
+    {"date": "2026-11-21", "type": "인사이트", "title": "100세 인생, 평생 월급 500만 원 만들기", "who": "연금박사 이영주 대표", "place": "KB라이프타워 지하 2층", "deck": "2026-11/", "cafe": []},
+    {"date": "2026-12-19", "type": "연말모임", "title": "2026 WIN NEXT 연말모임", "who": "", "place": "KB라이프타워 지하 2층", "time": "오전 10시", "cafe": []}
+  ]
+}
