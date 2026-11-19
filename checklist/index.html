@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>WIN NEXT 정기모임 체크리스트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{--bg:#060a22;--bg2:#0d1a3d;--card:rgba(200,215,255,.06);--line:rgba(170,190,240,.16);
+    --ink:#eef2fa;--muted:#a9b5cc;--dim:#6f7c98;--gold:#f0bf62;--red:#e4473b;--ok:#5fd39a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;color:var(--ink);word-break:keep-all;-webkit-font-smoothing:antialiased;
+    font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:radial-gradient(90% 40% at 50% 0%,#14244f 0%,var(--bg2) 35%,var(--bg) 75%) fixed,var(--bg)}
+  main{max-width:900px;margin:0 auto;padding:36px 18px 60px}
+  .mark{font-weight:800;letter-spacing:.14em;font-size:14px;color:var(--muted)} .mark span{color:var(--red)}
+  h1{font-size:clamp(26px,5vw,38px);font-weight:800;margin-top:8px}
+  .sub{color:var(--muted);margin-top:6px;font-size:15px}
+  select{margin-top:18px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit}
+  .sum{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin-top:20px;padding:22px;border-radius:18px;
+    background:var(--card);border:1px solid var(--line)}
+  .ring{--p:0;width:108px;height:108px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) calc(var(--p)*1%),rgba(170,190,240,.14) 0)}
+  .ring div{width:84px;height:84px;border-radius:50%;background:#0b1433;display:grid;place-items:center;text-align:center}
+  .ring b{font-size:24px;font-weight:800;line-height:1} .ring small{font-size:12px;color:var(--muted)}
+  .bars{display:grid;gap:12px}
+  .bar .lab{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:6px}
+  .bar .lab b{color:var(--ink)}
+  .track{height:8px;border-radius:99px;background:rgba(170,190,240,.14);overflow:hidden}
+  .fill{height:100%;background:var(--gold);border-radius:99px;transition:width .3s}
+  .tabs{display:flex;gap:8px;margin:26px 0 6px}
+  .tabs button{font:inherit;font-size:14px;font-weight:600;color:var(--muted);background:transparent;border:1px solid var(--line);
+    padding:7px 14px;border-radius:99px;cursor:pointer}
+  .tabs button.on{background:var(--gold);color:#1a1405;border-color:var(--gold)}
+  h2{font-size:20px;margin:30px 0 4px;display:flex;align-items:baseline;gap:10px}
+  h2 .cnt{font-size:14px;color:var(--gold);font-weight:700}
+  h3{font-size:14px;color:var(--muted);font-weight:700;margin:18px 0 6px;letter-spacing:.02em}
+  ul{list-style:none;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+  li{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-top:1px solid var(--line);cursor:pointer;user-select:none}
+  li:first-child{border-top:0}
+  li:hover{background:rgba(200,215,255,.04)}
+  .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--dim);display:grid;place-items:center;margin-top:1px;transition:.15s}
+  li.done .box{background:var(--ok);border-color:var(--ok)}
+  li.done .box::after{content:"";width:6px;height:11px;border:solid #06301b;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+  .t{flex:1;font-size:15.5px;line-height:1.45}
+  li.done .t{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(111,124,152,.6)}
+  .st{flex:none;font-size:12px;font-weight:700;padding:3px 8px;border-radius:99px;margin-top:2px}
+  li.done .st{color:var(--ok);background:rgba(95,211,154,.12)} li:not(.done) .st{color:var(--gold);background:rgba(240,191,98,.12)}
+  .own{display:inline-block;font-size:12px;color:var(--muted);margin-left:6px}
+  li.local .t::after{content:" · 웹에서 바꿈";font-size:11.5px;color:var(--red);text-decoration:none;display:inline-block}
+  .hide-done li.done{display:none}
+  footer{margin-top:34px;color:var(--dim);font-size:13px;line-height:1.7}
+  footer button{font:inherit;font-size:13px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer;margin-top:6px}
+  @media (max-width:560px){.sum{grid-template-columns:1fr;justify-items:center}.bars{width:100%}}
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">WINNE<span>X</span>T 2026</div>
+  <h1>정기모임 체크리스트</h1>
+  <p class="sub" id="sub"></p>
+  <select id="pick"></select>
+  <section class="sum"><div class="ring" id="ring"><div><span><b id="pct">0%</b><br><small id="frac"></small></span></div></div><div class="bars" id="bars"></div></section>
+  <div class="tabs"><button class="on" data-f="all">전체</button><button data-f="todo">미완료만</button></div>
+  <div id="list"></div>
+  <footer>정본은 옵시디언 「정기모임 체크리스트.md」 · 2026-11-19 23:22 기준으로 만든 화면<br>
+    여기서 누른 체크는 이 브라우저에만 저장돼요. 옵시디언에도 반영하려면 비서에게 알려 주세요.<br>
+    <button id="reset">옵시디언 상태로 되돌리기</button></footer>
+</main>
+<script>
+const DATA = [{"title": "2026년 11월 정기모임 · 11/21(토) 10:00 · KB라이프타워 지하 2층", "sub": "「100세 인생, 평생 월급 500만 원 만들기」 연금박사 이영주 대표", "phases": [{"name": "Before — 모임 전", "groups": [{"name": "공지·연사 (D-14 ~ D-7)", "items": [{"done": true, "text": "연사 확정, 이름·강연 제목 확인 (이영주 대표, 회장 확인 11/16)", "owner": "회장"}, {"done": true, "text": "전체방 모임 공지와 참석 투표 개설", "owner": "운영분과"}, {"done": true, "text": "참석 투표 독려 (11/16)", "owner": "회장"}, {"done": false, "text": "연사에게 일시·장소·주차 최종 안내", "owner": "회장"}]}, {"name": "인원·준비물 (D-3)", "items": [{"done": true, "text": "투표 마감(수 12시), 인원 확정 → 운영진방에 인원·다과·점심 수량·당일 역할 공유 (11/18)", "owner": "회장"}, {"done": false, "text": "다과 주문 (오전 9시 도착)", "owner": "부회장"}, {"done": false, "text": "점심 주문 (11:30)", "owner": "부회장"}, {"done": false, "text": "강사확인서 양식 준비 (외부강사)", "owner": "부회장"}, {"done": false, "text": "주차 등록·안내", "owner": "부회장"}, {"done": false, "text": "출석 QR (10월 것 그대로)·출석스티커·이름표", "owner": "운영분과"}]}, {"name": "전날 (D-1)", "items": [{"done": true, "text": "전체방 리마인드 (11/20, 회장 확인 11/16)", "owner": "회장"}, {"done": false, "text": "회장 발표자료 확정 (OneDrive 완성본)", "owner": "회장"}, {"done": false, "text": "오프닝 멘트 한두 줄 정리", "owner": "회장"}]}, {"name": "당일 아침 (D-day)", "items": [{"done": false, "text": "다과 수령·세팅 (9시)", "owner": "부회장"}, {"done": false, "text": "발표자료 띄우기: 크롬 → F 전체 화면", "owner": "회장"}, {"done": false, "text": "줌 연결·마이크·포인터 점검", "owner": "운영분과"}, {"done": false, "text": "출석 QR 안내, 출석스티커", "owner": "운영분과"}, {"done": false, "text": "강사확인서 서명 받기", "owner": "부회장"}, {"done": false, "text": "단체사진 (삼각대 + 플래카드)", "owner": "현장스케치"}, {"done": false, "text": "현장 피드백 받기", "owner": "회장"}]}]}, {"name": "After — 모임 후", "groups": [{"name": "당일 마무리", "items": [{"done": false, "text": "점심 정산 영수증 챙기기", "owner": "부회장"}, {"done": false, "text": "현장 사진 모으기", "owner": "현장스케치"}]}, {"name": "다음 주 (D+2 ~ D+5)", "items": [{"done": false, "text": "연사 감사 인사 (월)", "owner": "회장"}, {"done": false, "text": "카톡 전체방 후기·사진 공유 (월)", "owner": "회장"}, {"done": false, "text": "카페 후기 게시 (마무리 주 수요일까지)", "owner": "회장"}, {"done": false, "text": "출석 현황 기록", "owner": "운영분과"}, {"done": false, "text": "현장 피드백 정리, 다음 달에 반영할 것 한 줄", "owner": "회장"}, {"done": false, "text": "정산 (다과·점심·강사료)", "owner": "부회장"}, {"done": false, "text": "아카이브 갱신: 카페 후기 글 번호를 비서에게 알려 주기 → 사이트에 후기 링크 추가", "owner": "회장·비서"}, {"done": false, "text": "다음 달 모임 연사·장소 확인", "owner": "회장"}]}]}]}];
+const KEY = "wn-checklist-" + "2026-11-19 23:22";
+const local = JSON.parse(localStorage.getItem(KEY) || "{}");
+const pick = document.getElementById("pick");
+DATA.forEach((m, k) => pick.add(new Option(m.title.split("·")[0].trim(), k)));
+pick.value = 0;
+let filter = "all";
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function state(id, base){ return id in local ? local[id] : base; }
+function render(){
+  const k = +pick.value, m = DATA[k];
+  document.getElementById("sub").textContent = [m.title.split("·").slice(1).join("·").trim(), m.sub].filter(Boolean).join("  ·  ");
+  let all = 0, done = 0, html = "", bars = "";
+  m.phases.forEach((p, pi) => {
+    let pa = 0, pd = 0, body = "";
+    p.groups.forEach((g, gi) => {
+      body += `<h3>${esc(g.name)}</h3><ul>`;
+      g.items.forEach((it, ii) => {
+        const id = `${k}-${pi}-${gi}-${ii}`, d = state(id, it.done);
+        pa++; pd += d;
+        body += `<li class="${d ? "done" : ""}${id in local ? " local" : ""}" data-id="${id}" data-base="${it.done ? 1 : 0}">
+          <span class="box"></span><span class="t">${esc(it.text)}${it.owner ? `<span class="own">${esc(it.owner)}</span>` : ""}</span>
+          <span class="st">${d ? "완료" : "미완료"}</span></li>`;
+      });
+      body += `</ul>`;
+    });
+    all += pa; done += pd;
+    html += `<h2>${esc(p.name)} <span class="cnt">${pd} / ${pa}</span></h2>${body}`;
+    bars += `<div class="bar"><div class="lab"><span>${esc(p.name.split("—")[0].trim())}</span><b>${pd} / ${pa}</b></div><div class="track"><div class="fill" style="width:${pa ? pd / pa * 100 : 0}%"></div></div></div>`;
+  });
+  const list = document.getElementById("list");
+  list.innerHTML = html; list.className = filter === "todo" ? "hide-done" : "";
+  document.getElementById("bars").innerHTML = bars;
+  const pct = all ? Math.round(done / all * 100) : 0;
+  document.getElementById("ring").style.setProperty("--p", pct);
+  document.getElementById("pct").textContent = pct + "%";
+  document.getElementById("frac").textContent = `${done} / ${all} 완료`;
+}
+document.getElementById("list").addEventListener("click", e => {
+  const li = e.target.closest("li"); if (!li) return;
+  const id = li.dataset.id, base = li.dataset.base === "1", now = !li.classList.contains("done");
+  if (now === base) delete local[id]; else local[id] = now;
+  localStorage.setItem(KEY, JSON.stringify(local)); render();
+});
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b)); filter = b.dataset.f; render();
+});
+pick.onchange = render;
+document.getElementById("reset").onclick = () => { for (const k in local) delete local[k]; localStorage.removeItem(KEY); render(); };
+render();
+</script>
+</body>
+</html>
