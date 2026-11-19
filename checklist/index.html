@@ -14,6 +14,11 @@
     font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     background:radial-gradient(90% 40% at 50% 0%,#14244f 0%,var(--bg2) 35%,var(--bg) 75%) fixed,var(--bg)}
   main{max-width:900px;margin:0 auto;padding:36px 18px 60px}
+  nav.top{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+  nav.top .brand{font-weight:800;letter-spacing:.14em;font-size:14px;color:var(--muted);margin-right:10px;text-decoration:none}
+  nav.top .brand span{color:var(--red)}
+  nav.top a.m{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 13px;border-radius:99px;border:1px solid var(--line)}
+  nav.top a.m.on{background:var(--gold);color:#1a1405;border-color:var(--gold)}
   .mark{font-weight:800;letter-spacing:.14em;font-size:14px;color:var(--muted)} .mark span{color:var(--red)}
   h1{font-size:clamp(26px,5vw,38px);font-weight:800;margin-top:8px}
   .sub{color:var(--muted);margin-top:6px;font-size:15px}
@@ -57,20 +62,20 @@
 </head>
 <body>
 <main>
-  <div class="mark">WINNE<span>X</span>T 2026</div>
+  <nav class="top"><a class="brand" href="../">WINNE<span>X</span>T 2026</a><a class="m" href="../">정기모임 아카이브</a><a class="m on" href="../checklist/">체크리스트</a></nav>
   <h1>정기모임 체크리스트</h1>
   <p class="sub" id="sub"></p>
   <select id="pick"></select>
   <section class="sum"><div class="ring" id="ring"><div><span><b id="pct">0%</b><br><small id="frac"></small></span></div></div><div class="bars" id="bars"></div></section>
   <div class="tabs"><button class="on" data-f="all">전체</button><button data-f="todo">미완료만</button></div>
   <div id="list"></div>
-  <footer>정본은 옵시디언 「정기모임 체크리스트.md」 · 2026-11-19 23:22 기준으로 만든 화면<br>
+  <footer>정본은 옵시디언 「정기모임 체크리스트.md」 · 2026-11-19 23:30 기준으로 만든 화면<br>
     여기서 누른 체크는 이 브라우저에만 저장돼요. 옵시디언에도 반영하려면 비서에게 알려 주세요.<br>
     <button id="reset">옵시디언 상태로 되돌리기</button></footer>
 </main>
 <script>
 const DATA = [{"title": "2026년 11월 정기모임 · 11/21(토) 10:00 · KB라이프타워 지하 2층", "sub": "「100세 인생, 평생 월급 500만 원 만들기」 연금박사 이영주 대표", "phases": [{"name": "Before — 모임 전", "groups": [{"name": "공지·연사 (D-14 ~ D-7)", "items": [{"done": true, "text": "연사 확정, 이름·강연 제목 확인 (이영주 대표, 회장 확인 11/16)", "owner": "회장"}, {"done": true, "text": "전체방 모임 공지와 참석 투표 개설", "owner": "운영분과"}, {"done": true, "text": "참석 투표 독려 (11/16)", "owner": "회장"}, {"done": false, "text": "연사에게 일시·장소·주차 최종 안내", "owner": "회장"}]}, {"name": "인원·준비물 (D-3)", "items": [{"done": true, "text": "투표 마감(수 12시), 인원 확정 → 운영진방에 인원·다과·점심 수량·당일 역할 공유 (11/18)", "owner": "회장"}, {"done": false, "text": "다과 주문 (오전 9시 도착)", "owner": "부회장"}, {"done": false, "text": "점심 주문 (11:30)", "owner": "부회장"}, {"done": false, "text": "강사확인서 양식 준비 (외부강사)", "owner": "부회장"}, {"done": false, "text": "주차 등록·안내", "owner": "부회장"}, {"done": false, "text": "출석 QR (10월 것 그대로)·출석스티커·이름표", "owner": "운영분과"}]}, {"name": "전날 (D-1)", "items": [{"done": true, "text": "전체방 리마인드 (11/20, 회장 확인 11/16)", "owner": "회장"}, {"done": false, "text": "회장 발표자료 확정 (OneDrive 완성본)", "owner": "회장"}, {"done": false, "text": "오프닝 멘트 한두 줄 정리", "owner": "회장"}]}, {"name": "당일 아침 (D-day)", "items": [{"done": false, "text": "다과 수령·세팅 (9시)", "owner": "부회장"}, {"done": false, "text": "발표자료 띄우기: 크롬 → F 전체 화면", "owner": "회장"}, {"done": false, "text": "줌 연결·마이크·포인터 점검", "owner": "운영분과"}, {"done": false, "text": "출석 QR 안내, 출석스티커", "owner": "운영분과"}, {"done": false, "text": "강사확인서 서명 받기", "owner": "부회장"}, {"done": false, "text": "단체사진 (삼각대 + 플래카드)", "owner": "현장스케치"}, {"done": false, "text": "현장 피드백 받기", "owner": "회장"}]}]}, {"name": "After — 모임 후", "groups": [{"name": "당일 마무리", "items": [{"done": false, "text": "점심 정산 영수증 챙기기", "owner": "부회장"}, {"done": false, "text": "현장 사진 모으기", "owner": "현장스케치"}]}, {"name": "다음 주 (D+2 ~ D+5)", "items": [{"done": false, "text": "연사 감사 인사 (월)", "owner": "회장"}, {"done": false, "text": "카톡 전체방 후기·사진 공유 (월)", "owner": "회장"}, {"done": false, "text": "카페 후기 게시 (마무리 주 수요일까지)", "owner": "회장"}, {"done": false, "text": "출석 현황 기록", "owner": "운영분과"}, {"done": false, "text": "현장 피드백 정리, 다음 달에 반영할 것 한 줄", "owner": "회장"}, {"done": false, "text": "정산 (다과·점심·강사료)", "owner": "부회장"}, {"done": false, "text": "아카이브 갱신: 카페 후기 글 번호를 비서에게 알려 주기 → 사이트에 후기 링크 추가", "owner": "회장·비서"}, {"done": false, "text": "다음 달 모임 연사·장소 확인", "owner": "회장"}]}]}]}];
-const KEY = "wn-checklist-" + "2026-11-19 23:22";
+const KEY = "wn-checklist-" + "2026-11-19 23:30";
 const local = JSON.parse(localStorage.getItem(KEY) || "{}");
 const pick = document.getElementById("pick");
 DATA.forEach((m, k) => pick.add(new Option(m.title.split("·")[0].trim(), k)));

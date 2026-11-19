@@ -14,6 +14,11 @@
     font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     background:radial-gradient(90% 50% at 50% 0%,#14244f 0%,var(--bg2) 35%,var(--bg) 75%) fixed,var(--bg)}
   main{max-width:880px;margin:0 auto;padding:44px 20px 64px}
+  nav.top{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+  nav.top .brand{font-weight:800;letter-spacing:.14em;font-size:14px;color:var(--muted);margin-right:10px;text-decoration:none}
+  nav.top .brand span{color:var(--red)}
+  nav.top a.m{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 13px;border-radius:99px;border:1px solid var(--line)}
+  nav.top a.m.on{background:var(--gold);color:#1a1405;border-color:var(--gold)}
   header .mark{font-weight:800;letter-spacing:.14em;font-size:15px;color:var(--muted)}
   header .mark span{color:var(--red)}
   header h1{font-size:clamp(30px,6vw,46px);font-weight:800;margin-top:10px;line-height:1.15}
@@ -56,8 +61,8 @@
 </head>
 <body>
 <main>
+  <nav class="top"><a class="brand" href="./">WINNE<span>X</span>T 2026</a><a class="m on" href="./">정기모임 아카이브</a><a class="m" href="./checklist/">체크리스트</a></nav>
   <header>
-    <div class="mark">WINNE<span>X</span>T 2026</div>
     <h1>2026 정기모임 <em>아카이브</em></h1>
     <p>Courage to Move · 한 해 12번의 모임</p>
   </header>
